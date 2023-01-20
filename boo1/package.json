@@ -1,0 +1,33 @@
+{
+  "name": "boo1",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "@coreui/coreui": "^4.2.3",
+    "@coreui/react": "^4.4.0",
+    "@netlify/plugin-nextjs": "^4.29.2",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "bootstrap": "^5.2.3",
+    "eslint": "8.28.0",
+    "eslint-config-next": "13.0.4",
+    "next": "^13.0.4",
+    "react": "18.2.0",
+    "react-color": "^2.19.3",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1",
+    "react-sketch-canvas": "^6.2.0",
+    "sass": "^1.56.1",
+    "typescript": "4.9.3"
+  },
+  "devDependencies": {
+    "@types/react-color": "^3.0.6"
+  }
+}
