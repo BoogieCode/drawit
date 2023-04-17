@@ -2,10 +2,7 @@ import React from "react";
 
 const DrawingSuggestion = () => {
   return (
-    <div
-      draggable={true}
-      onDrag={(ev) => console.log("dragging: " + ev.detail)}
-    >
+    <div draggable={true}>
       <img
         style={{
           borderRadius: "15px",

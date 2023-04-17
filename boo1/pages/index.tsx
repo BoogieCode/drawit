@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { ReactSketchCanvasRef } from "react-sketch-canvas";
 import Canvas from "../components/canvas/canvas";
-import ColorPicker from "../components/colorPicker/colorPicker";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -9,6 +9,7 @@ export default function Home() {
   const [isErasing, setIsErasing] = useState<boolean>(false);
   const [drawingColor, setDrawingColor] = useState<string>("#000000");
   const [strokeWidth, setStrokeWidth] = useState<number>(4);
+  const reactSketchCanvasRef = useRef<ReactSketchCanvasRef>();
 
   return (
     <div className={styles.container}>
@@ -22,11 +23,13 @@ export default function Home() {
           isErasing={isErasing}
           drawingColor={drawingColor}
           strokeWidth={strokeWidth}
+          setStrokeWidth={setStrokeWidth}
           setDrawingColor={setDrawingColor}
           setIsErasing={setIsErasing}
+          reactSketchCanvasRef={reactSketchCanvasRef}
         />
       </main>
-      <button
+      {/* <button
         style={{
           position: "fixed",
           left: 0,
@@ -47,12 +50,14 @@ export default function Home() {
           src="https://cdn-icons-png.flaticon.com/512/4043/4043845.png"
         ></img>
       </button>
+      <Share reactSketchCanvasRef={reactSketchCanvasRef} />
+
       <ColorPicker
         setDrawingColor={setDrawingColor}
         setIsToolPanelOpen={setIsToolPanelOpen}
         setIsErasing={setIsErasing}
-      />
-      <footer className={styles.footer}></footer>
+      /> */}
+      {/* <footer className={styles.footer}></footer> */}
     </div>
   );
 }

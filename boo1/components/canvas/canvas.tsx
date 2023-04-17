@@ -1,4 +1,11 @@
-import React, { Dispatch, FC, SetStateAction, useRef, useState } from "react";
+import React, {
+  Dispatch,
+  FC,
+  MutableRefObject,
+  SetStateAction,
+  useRef,
+  useState,
+} from "react";
 import { ReactSketchCanvas, ReactSketchCanvasRef } from "react-sketch-canvas";
 import DrawingSuggestion from "../drawingSuggestion/drawingSuggestion";
 import TopTools from "../topTools/topTools";
@@ -12,21 +19,24 @@ const styles = {
 };
 
 type Props = {
+  reactSketchCanvasRef: MutableRefObject<ReactSketchCanvasRef | undefined>;
   isErasing: boolean;
   drawingColor: string;
   strokeWidth: number;
   setDrawingColor: Dispatch<SetStateAction<string>>;
   setIsErasing: Dispatch<SetStateAction<boolean>>;
+  setStrokeWidth: Dispatch<SetStateAction<number>>;
 };
 
 const Canvas: FC<Props> = ({
+  reactSketchCanvasRef,
   isErasing,
   drawingColor,
   strokeWidth,
+  setStrokeWidth,
   setDrawingColor,
   setIsErasing,
 }) => {
-  const reactSketchCanvasRef = useRef<ReactSketchCanvasRef>();
   reactSketchCanvasRef.current?.eraseMode(isErasing);
 
   return (
@@ -34,7 +44,11 @@ const Canvas: FC<Props> = ({
       <TopTools
         setDrawingColor={setDrawingColor}
         setIsErasing={setIsErasing}
+        isErasing={isErasing}
         drawingColor={drawingColor}
+        strokeWidth={strokeWidth}
+        setStrokeWidth={setStrokeWidth}
+        reactSketchCanvasRef={reactSketchCanvasRef}
       />
       <DrawingSuggestion />
       <div>
